@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import CustomLink from "./components/CustomLink";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,9 +11,28 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <nav className="border-[1px] border-black ">
+          <ul className="flex justify-around">
+           <li>
+            <CustomLink path="/">Home</CustomLink>
+           </li>
+          <li>
+            <CustomLink path="/dashboard">Dashboard</CustomLink>
+           </li>
+           <li>
+            <CustomLink path="/contact">Contact</CustomLink>
+           </li>
+           <li>
+            <CustomLink path="/blogs">Blogs</CustomLink>
+           </li>
+          </ul>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
